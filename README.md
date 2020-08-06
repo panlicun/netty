@@ -9,6 +9,8 @@ netty-client  客户端，发送端，也就是上面的A
 netty-server 服务端，接收端，也就是上面的C
 netty-server-client  通道，也就是上面的B
 
+netty-server-client 与 netty-server-client2 一模一样，只不过方便测试，多复制了一份，使用时，将netty-server-client打成jar包，分开部署即可
+
 如果普通使用的话可以直接使用A 到 C 进行传输，上述传递方式有特殊的使用场景，次例子是按上述场景开发的
 
 
