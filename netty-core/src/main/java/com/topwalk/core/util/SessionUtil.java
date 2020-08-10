@@ -10,8 +10,14 @@ import java.util.Map;
 
 public class SessionUtil {
 
+	/**
+	 * 存放的是上一节点链接到当前服务端的channel，key的规则，起始IP：端口
+	 */
 	private static final Map<String, Channel> SERVER_CHANNEL_MAP = new HashMap<>();
 
+	/**
+	 * 存放的是下一节点要链接的服务端的channel,key的规则是，最终IP:端口
+	 */
 	private static final Map<String, Channel> CLIENT_CHANNEL_MAP = new HashMap<>();
 
 

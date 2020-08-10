@@ -54,12 +54,6 @@ public class SecureServerHandler extends ChannelInboundHandlerAdapter {
                         remoteServerIp = secureModel.getUltimateIp();
                         remoteServerPort = secureModel.getUltimatePort();
                     }
-
-                    //如果存在该管道就不再重复连接
-                    String clientMapKey = secureModel.getUltimateIp() + ":" + secureModel.getUltimatePort();
-                    if (null != SessionUtil.getClientChannelMap().get(clientMapKey)) {
-                        return;
-                    }
                     new NettyClientThread(remoteServerPort, remoteServerIp, localClientPort,secureModel.getOriginIp(),secureModel.getOriginPort(),secureModel.getUltimateIp(),secureModel.getUltimatePort(), secureModel.getDataSource()).start();
                     return;
                 }

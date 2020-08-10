@@ -29,7 +29,7 @@ public class SecureServerHandler extends ChannelInboundHandlerAdapter {
         	if(secureModel.getToken() != null ){
         		//TODO  验证 token 是否存在，并且token对应的 ip和 ctx里面来源ip是否一致
         		if(secureModel.getToken().equals("topwalk")){
-					SessionUtil.bindServerSession(new Session(secureModel.getClientAddr()), ctx.channel());
+					SessionUtil.bindServerSession(new Session(secureModel.getOriginIp()+":"+secureModel.getOriginPort()), ctx.channel());
         			log.info("NEW TCP --> " + ctx.channel().remoteAddress());
         			log.info("now connection count --> " +SessionUtil.getServerChannelMap().size());
         			secureModel.setAutoSuccess(true);

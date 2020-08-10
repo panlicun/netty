@@ -7,7 +7,8 @@ import com.topwalk.core.model.enums.DataSourceEnum;
 import com.topwalk.core.util.FileTransferProperties;
 import com.topwalk.core.util.MD5FileUtil;
 import io.netty.channel.Channel;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ import java.io.RandomAccessFile;
 
 public class NettyTransfer {
 
-    private Logger log = Logger.getLogger(NettyTransfer.class);
+    private Logger log = LoggerFactory.getLogger(NettyTransfer.class);
 
     public static boolean secureStatus = true;
     private int byteRead;
@@ -94,8 +95,12 @@ public class NettyTransfer {
     }
 
     public void responseFileHandle(ResponseFile response, Channel channel) throws Exception{
-        log.info(response);
         RequestFile rf = response.getRequestFile();
+        log.info(response.toString());
+        if(rf.getFile_name() == null){
+            log.info("文件{}发送进度：{}",rf.getFile_name(),response);
+        }
+
         if(!response.isEnd()){
             long start = response.getStart();
             if (start != -1) {
