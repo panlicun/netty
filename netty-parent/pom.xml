@@ -15,10 +15,8 @@
 
     <modules>
         <module>../netty-server</module>
-        <module>../netty-server2</module>
         <module>../netty-client</module>
         <module>../netty-core</module>
-        <module>../netty-client2</module>
         <module>../netty-server-client</module>
         <module>../netty-server-client2</module>
     </modules>
