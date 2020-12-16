@@ -97,8 +97,10 @@ public class NettyTransfer {
     public void responseFileHandle(ResponseFile response, Channel channel) throws Exception{
         RequestFile rf = response.getRequestFile();
         log.info(response.toString());
-        if(rf.getFile_name() == null){
-            log.info("文件{}发送进度：{}",rf.getFile_name(),response);
+        if(rf != null){
+            if(rf.getFile_name() == null){
+                log.info("文件{}发送进度：{}",rf.getFile_name(),response);
+            }
         }
 
         if(!response.isEnd()){

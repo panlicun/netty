@@ -85,7 +85,7 @@ public class NettyTransferClient {
     private static void init() {
         try {
             //请把加载属性文件放在 加载日志配置的上面，因为读取日志输出的目录配置在 属性文件里面
-            FileTransferProperties.load("E:\\code\\netty-file-3rd\\netty-client.properties");
+            FileTransferProperties.load("E:\\code\\netty\\netty-client.properties");
 
             System.setProperty("WORKDIR", FileTransferProperties.getString("work_dir", "/"));
 
